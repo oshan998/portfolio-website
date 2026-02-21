@@ -2,6 +2,7 @@
 
 import Head from 'next/head';
 import { siteConfig } from '@/data/config';
+import { getAssetPath } from '@/lib/utils';
 
 interface SEOHeadProps {
   title?: string;
@@ -34,7 +35,7 @@ export function SEOHead({
   const pageUrl = url || siteConfig.seo.siteUrl;
   const fullImageUrl = pageImage.startsWith('http')
     ? pageImage
-    : `${siteConfig.seo.siteUrl}${pageImage}`;
+    : `${siteConfig.seo.siteUrl}${getAssetPath(pageImage)}`;
 
   return (
     <Head>

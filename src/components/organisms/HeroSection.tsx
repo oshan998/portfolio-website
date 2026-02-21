@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { siteConfig } from '@/data/config';
+import { getAssetPath } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
 import { EmailIcon, UserIcon, CodeIcon, CloudIcon, ArrowUpIcon } from '@/components/icons';
 
@@ -144,7 +145,7 @@ export function HeroSection() {
                 >
                   {siteConfig.profileImage ? (
                     <img
-                      src={siteConfig.profileImage}
+                      src={getAssetPath(siteConfig.profileImage)}
                       alt={`${siteConfig.name} - Profile Photo`}
                       className="h-full w-full object-cover"
                       loading="eager"

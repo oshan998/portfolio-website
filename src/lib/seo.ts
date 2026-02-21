@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { siteConfig, skillsData } from '@/data/config';
 import { PersonStructuredData, Organization } from '@/types';
+import { getAssetPath } from '@/lib/utils';
 
 // Generate comprehensive metadata for pages
 export function generateMetadata({
@@ -22,6 +23,9 @@ export function generateMetadata({
   const pageDescription = description || siteConfig.description;
   const pageUrl = `${siteConfig.url}${path}`;
   const pageOgImage = ogImage || siteConfig.ogImage;
+  const fullImageUrl = pageOgImage.startsWith('http')
+    ? pageOgImage
+    : `${siteConfig.url}${getAssetPath(pageOgImage)}`;
 
   return {
     title: pageTitle,
@@ -45,7 +49,7 @@ export function generateMetadata({
       siteName: `${siteConfig.name} - Portfolio`,
       images: [
         {
-          url: pageOgImage,
+          url: fullImageUrl,
           width: 1200,
           height: 630,
           alt: `${siteConfig.name} - ${siteConfig.title}`,
@@ -58,7 +62,7 @@ export function generateMetadata({
       card: 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
-      images: [pageOgImage],
+      images: [fullImageUrl],
       creator: siteConfig.links.twitter
         ? `@${siteConfig.links.twitter.split('/').pop()}`
         : undefined,
@@ -136,12 +140,16 @@ export function generateWebsiteStructuredData() {
 
 // Generate JSON-LD structured data for Organization schema (if applicable)
 export function generateOrganizationStructuredData() {
+  const logoUrl = siteConfig.ogImage.startsWith('http')
+    ? siteConfig.ogImage
+    : `${siteConfig.url}${getAssetPath(siteConfig.ogImage)}`;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: `${siteConfig.name} - Software Engineering`,
     url: siteConfig.url,
-    logo: siteConfig.ogImage,
+    logo: logoUrl,
     contactPoint: {
       '@type': 'ContactPoint',
       email: siteConfig.links.email,
