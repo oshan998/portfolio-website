@@ -6,7 +6,7 @@ export const siteConfig = {
   title: 'Software Engineer',
   description:
     'A passionate software engineer building modern web applications with React, Angular, Java and Spring Boot. Explore my projects, articles, and professional journey.',
-  url: 'https://yourusername.github.io',
+  url: 'https://oshan998.github.io',
   ogImage: '/og-image.jpg',
   profileImage: '/profile.png', // Add your profile image path here, e.g., '/profile.jpg'
   keywords: [
@@ -55,7 +55,7 @@ export const siteConfig = {
     titleTemplate: '%s | Oshan Nanayakkara',
     defaultDescription:
       'A passionate software engineer building modern web applications with React, Angular, Java and Spring Boot. Explore my projects, articles, and professional journey.',
-    siteUrl: 'https://yourusername.github.io',
+    siteUrl: 'https://oshan998.github.io',
     defaultImage: '/og-image.jpg',
     twitterUsername: '',
     facebookAppId: '', // Add if you have one
