@@ -58,9 +58,9 @@ export const siteConfig = {
     siteUrl: 'https://yourusername.github.io',
     defaultImage: '/og-image.jpg',
     twitterUsername: '',
-    //facebookAppId: '', // Add if you have one
-    //googleSiteVerification: '', // Add your Google verification code
-    //bingSiteVerification: '', // Add your Bing verification code
+    facebookAppId: '', // Add if you have one
+    googleSiteVerification: '', // Add your Google verification code
+    bingSiteVerification: '', // Add your Bing verification code
   },
 };
 
